@@ -259,3 +259,77 @@ int main() {
     }
     return 0;
 }
+
+
+=========================
+    EXECUTED OUTPUT
+========================
+
+
+[24bcs057@mepcolinux networks]$g++ byte_stuffing.c
+[24bcs057@mepcolinux networks]$./a.out
+Enter 8 bits for the Flag byte: 0 1 0 0 0 0 0 1
+Enter 8 bits for the Escape byte: 0 1 0 0 0 0 1 0
+
+--- Menu ---
+1. Transmit String with Byte Stuffing
+2. Enter Raw Byte Stream (Check for Frame Errors)
+3. Exit
+Select an option: 1
+
+--- String Transmission Mode ---
+Enter your message: AB
+
+Flag byte: 01000001
+Escape byte: 01000010
+
+Original Bytes: 01000001 01000010
+Stuffed Bytes : 01000010 01000001 01000010 01000010
+Framed Bytes  : 01000001 01000010 01000001 01000010 01000010 01000001
+Destuffed Bytes: 01000001 01000010
+
+Destuffing successful!
+Received message: AB
+
+--- Menu ---
+1. Transmit String with Byte Stuffing
+2. Enter Raw Byte Stream (Check for Frame Errors)
+3. Exit
+Select an option: 2
+
+--- Manual Byte Stream Input ---
+Enter number of bytes in stream: 2
+Enter 2 byte values:
+5
+4
+
+Analyzing input stream...
+Input Stream: 00000101 00000100
+
+[DISCARDED] Framing error: Missing correct start/end Flag bytes.
+Expected Flag byte value: 65
+Found start: 5, end: 4
+
+--- Menu ---
+1. Transmit String with Byte Stuffing
+2. Enter Raw Byte Stream (Check for Frame Errors)
+3. Exit
+Select an option: 2
+
+--- Manual Byte Stream Input ---
+Enter number of bytes in stream: 3
+Enter 3 byte values:
+65
+5
+65
+
+Analyzing input stream...
+Input Stream: 01000001 00000101 01000001
+Destuffed Bytes: 00000101
+Decoded data includes non-printable characters.
+
+--- Menu ---
+1. Transmit String with Byte Stuffing
+2. Enter Raw Byte Stream (Check for Frame Errors)
+3. Exit
+Select an option: 3
