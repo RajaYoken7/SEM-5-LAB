@@ -195,3 +195,49 @@ int main() {
 
     return 0;
 }
+
+
+
+=====================
+    EXECUTED OUTPUT
+=====================
+
+[24bcs057@mepcolinux networks]$g++ bit_stuffing.c
+[24bcs057@mepcolinux networks]$./a.out
+=== Menu ===
+1. Transmit String with Bit Stuffing
+2. Enter Binary Stream Manually (Check for Stuffing Errors)
+3. Quit
+Enter choice: 1
+Input a string: hello
+Original bits: 0110100001100101011011000110110001101111
+Stuffed bits:  0110100001100101011011000110110001101111
+Framed bits:   01111110011010000110010101101100011011000110111101111110
+Destuffed bits: 0110100001100101011011000110110001101111
+Output string: hello
+=== Menu ===
+1. Transmit String with Bit Stuffing
+2. Enter Binary Stream Manually (Check for Stuffing Errors)
+3. Quit
+Enter choice: 2
+Input raw binary stream: 01111110
+Processing your input stream...
+Input bits:     01111110
+
+[DISCARDED] Error: Invalid stuffed bit pattern detected!
+Expected a stuffed '0' bit after 5 ones, but found a '1'.
+=== Menu ===
+1. Transmit String with Bit Stuffing
+2. Enter Binary Stream Manually (Check for Stuffing Errors)
+3. Quit
+Enter choice: 2
+Input raw binary stream: 01111101
+Processing your input stream...
+Input bits:     01111101
+Destuffed bits: 0111111
+=== Menu ===
+1. Transmit String with Bit Stuffing
+2. Enter Binary Stream Manually (Check for Stuffing Errors)
+3. Quit
+Enter choice: 3
+Program terminated.
