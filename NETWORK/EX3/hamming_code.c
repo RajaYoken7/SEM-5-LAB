@@ -127,3 +127,53 @@ int main() {
 
     return 0;
 }
+[24bcs057@mepcolinux ex3]$[24bcs057@mepcolinux ex3]$gcc hammingcode.c
+[24bcs057@mepcolinux ex3]$./a.out
+Input binary data stream: 1101
+
+*** TRANSMISSION SOURCE ***
+Original bits: 1101
+Redundant bits calculated: 3
+Generated Hamming code: 1010101
+
+Simulate a transmission error? (Press 1 for Yes, 0 for No): 0
+
+*** DESTINATION RECEIVER ***
+Incoming stream: 1010101
+Calculated check value: 0
+Status: Stream is error-free
+Final recovered data: 1101
+[24bcs057@mepcolinux ex3]$./a.out
+Input binary data stream: 1101
+
+*** TRANSMISSION SOURCE ***
+Original bits: 1101
+Redundant bits calculated: 3
+Generated Hamming code: 1010101
+
+Simulate a transmission error? (Press 1 for Yes, 0 for No): 1
+Specify the index to alter (Range 1 to 7): 3
+
+*** DESTINATION RECEIVER ***
+Incoming stream: 1000101
+Calculated check value: 3
+Status: Corrupted bit detected at index 3
+Fixed sequence: 1010101
+Final recovered data: 1101
+[24bcs057@mepcolinux ex3]$./a.out
+Input binary data stream: 1101
+
+*** TRANSMISSION SOURCE ***
+Original bits: 1101
+Redundant bits calculated: 3
+Generated Hamming code: 1010101
+
+Simulate a transmission error? (Press 1 for Yes, 0 for No): 1
+Specify the index to alter (Range 1 to 7): 3
+
+*** DESTINATION RECEIVER ***
+Incoming stream: 1000101
+Calculated check value: 3
+Status: Corrupted bit detected at index 3
+Fixed sequence: 1010101
+Final recovered data: 1101
