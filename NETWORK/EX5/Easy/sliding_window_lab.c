@@ -285,3 +285,173 @@ int main() {
     mainMenu();
     return 0;
 }
+
+
+========================================
+     NETWORK LABORATORY SIMULATION
+        SLIDING WINDOW PROTOCOLS
+========================================
+  1. Stop and Wait ARQ
+  2. Go-Back-N ARQ
+  3. Selective Repeat ARQ
+  0. Exit
+========================================
+Enter your choice: 2
+========================================
+         GO-BACK-N ARQ PROTOCOL
+========================================
+
+Enter total number of frames to send: 5
+Enter window size: 3
+
+--- Starting Go-Back-N Simulation ---
+Window Size: 3 | Total Frames: 5
+
+[SENDER] Sending frame 0...
+[SENDER] Sending frame 1...
+[SENDER] Sending frame 2...
+
+[NETWORK] Frame 0 or its ACK was LOST!
+
+[SENDER] Timeout! Resending from frame 0 onwards...
+
+[SENDER] Sending frame 0...
+[SENDER] Sending frame 1...
+[SENDER] Sending frame 2...
+
+[RECEIVER] Frame 0 received OK. Sending ACK 0
+[NETWORK] Frame 1 or its ACK was LOST!
+
+[SENDER] Timeout! Resending from frame 1 onwards...
+
+[SENDER] Sending frame 1...
+[SENDER] Sending frame 2...
+
+[RECEIVER] Frame 0 received OK. Sending ACK 0
+[RECEIVER] Frame 1 received OK. Sending ACK 1
+[RECEIVER] Frame 2 received OK. Sending ACK 2
+
+[SENDER] All frames in window acknowledged. Sliding window forward.
+
+[SENDER] Sending frame 3...
+[SENDER] Sending frame 4...
+
+[RECEIVER] Frame 3 received OK. Sending ACK 3
+[RECEIVER] Frame 4 received OK. Sending ACK 4
+
+[SENDER] All frames in window acknowledged. Sliding window forward.
+
+========================================
+  All frames sent successfully (GBN)!
+========================================
+
+Press Enter to continue...
+========================================
+     NETWORK LABORATORY SIMULATION
+        SLIDING WINDOW PROTOCOLS
+========================================
+  1. Stop and Wait ARQ
+  2. Go-Back-N ARQ
+  3. Selective Repeat ARQ
+  0. Exit
+========================================
+Enter your choice: 2
+========================================
+         GO-BACK-N ARQ PROTOCOL
+========================================
+
+Enter total number of frames to send: 5
+Enter window size: 3
+
+--- Starting Go-Back-N Simulation ---
+Window Size: 3 | Total Frames: 5
+
+[SENDER] Sending frame 0...
+[SENDER] Sending frame 1...
+[SENDER] Sending frame 2...
+
+[RECEIVER] Frame 0 received OK. Sending ACK 0
+[RECEIVER] Frame 1 received OK. Sending ACK 1
+[RECEIVER] Frame 2 received OK. Sending ACK 2
+
+[SENDER] All frames in window acknowledged. Sliding window forward.
+
+[SENDER] Sending frame 3...
+[SENDER] Sending frame 4...
+
+[RECEIVER] Frame 3 received OK. Sending ACK 3
+[RECEIVER] Frame 4 received OK. Sending ACK 4
+
+[SENDER] All frames in window acknowledged. Sliding window forward.
+
+========================================
+  All frames sent successfully (GBN)!
+========================================
+
+Press Enter to continue...
+========================================
+     NETWORK LABORATORY SIMULATION
+        SLIDING WINDOW PROTOCOLS
+========================================
+  1. Stop and Wait ARQ
+  2. Go-Back-N ARQ
+  3. Selective Repeat ARQ
+  0. Exit
+========================================
+Enter your choice: 3
+========================================
+      SELECTIVE REPEAT ARQ PROTOCOL
+========================================
+
+Enter total number of frames to send: 5
+Enter window size: 3
+
+--- Starting Selective Repeat Simulation ---
+Window Size: 3 | Total Frames: 5
+
+[SENDER] Sending frame 0...
+[SENDER] Sending frame 1...
+[SENDER] Sending frame 2...
+
+[RECEIVER] Frame 0 received OK. Sending ACK 0
+[NETWORK] Frame 1 or its ACK was LOST! Will retransmit individually.
+[NETWORK] Frame 2 or its ACK was LOST! Will retransmit individually.
+
+[SENDER] Retransmitting lost frame 1 individually...
+[RECEIVER] Frame 1 received OK. Sending ACK 1
+[SENDER] Retransmitting lost frame 2 individually...
+[RECEIVER] Frame 2 received OK. Sending ACK 2
+
+[STATUS] Window base now at frame 1
+
+[SENDER] Sending frame 3...
+
+[RECEIVER] Frame 3 received OK. Sending ACK 3
+
+
+[STATUS] Window base now at frame 4
+
+[SENDER] Sending frame 4...
+
+[RECEIVER] Frame 4 received OK. Sending ACK 4
+
+
+[STATUS] Window base now at frame 5
+
+========================================
+All frames sent successfully (Selective Repeat)!
+========================================
+
+Press Enter to continue...
+========================================
+     NETWORK LABORATORY SIMULATION
+        SLIDING WINDOW PROTOCOLS
+========================================
+  1. Stop and Wait ARQ
+  2. Go-Back-N ARQ
+  3. Selective Repeat ARQ
+  0. Exit
+========================================
+Enter your choice: 0
+
+Exiting... Thank you!
