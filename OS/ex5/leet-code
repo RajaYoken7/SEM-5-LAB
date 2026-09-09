@@ -1,0 +1,57 @@
+#include <vector>
+
+using namespace std;
+
+class Allocator {
+private:
+    
+    vector<int> memory;
+    int n;
+
+public:
+  
+    Allocator(int n) : n(n), memory(n, 0) {}
+
+   
+    int allocate(int size, int mID) {
+        int consecutiveFree = 0;
+        
+        for (int i = 0; i < n; ++i) {
+            if (memory[i] == 0) {
+                consecutiveFree++;
+                
+                
+                if (consecutiveFree == size) {
+                    int startIdx = i - size + 1;
+                    
+                    
+                   
+                    for (int j = startIdx; j <= i; ++j) {
+                        memory[j] = mID;
+                    }
+                    return startIdx;
+                }
+            } else {
+              
+                consecutiveFree = 0;
+            }
+        }
+        
+        /
+        return -1;
+    }
+
+    
+    int freeMemory(int mID) {
+        int freedCount = 0;
+        
+        for (int i = 0; i < n; ++i) {
+            if (memory[i] == mID) {
+                memory[i] = 0; // Reset to free state
+                freedCount++;
+            }
+        }
+        
+        return freedCount;
+    }
+};
