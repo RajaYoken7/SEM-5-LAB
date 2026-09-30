@@ -1,0 +1,64 @@
+import java.util.*;
+
+class FileSystem {
+    private class FileNode {
+        boolean isFile = false;
+        String content = "";
+        Map<String, FileNode> children = new TreeMap<>();
+    }
+
+    private final FileNode root;
+
+    public FileSystem() {
+        root = new FileNode();
+    }
+
+    public List<String> ls(String path) {
+        FileNode node = root;
+        List<String> result = new ArrayList<>();
+        if (!path.equals("/")) {
+            String[] dirs = path.split("/");
+            String target = dirs[dirs.length - 1];
+            for (int i = 1; i < dirs.length; i++) {
+                node = node.children.get(dirs[i]);
+            }
+            if (node.isFile) {
+                result.add(target);
+                return result;
+            }
+        }
+        result.addAll(node.children.keySet());
+        return result;
+    }
+
+    public void mkdir(String path) {
+        FileNode node = root;
+        String[] dirs = path.split("/");
+        for (int i = 1; i < dirs.length; i++) {
+            node.children.putIfAbsent(dirs[i], new FileNode());
+            node = node.children.get(dirs[i]);
+        }
+    }
+
+    public void addContentToFile(String filePath, String content) {
+        FileNode node = root;
+        String[] dirs = filePath.split("/");
+        for (int i = 1; i < dirs.length - 1; i++) {
+            node = node.children.get(dirs[i]);
+        }
+        String fileName = dirs[dirs.length - 1];
+        node.children.putIfAbsent(fileName, new FileNode());
+        node = node.children.get(fileName);
+        node.isFile = true;
+        node.content += content;
+    }
+
+    public String readContentFromFile(String filePath) {
+        FileNode node = root;
+        String[] dirs = filePath.split("/");
+        for (int i = 1; i < dirs.length; i++) {
+            node = node.children.get(dirs[i]);
+        }
+        return node.content;
+    }
+}
